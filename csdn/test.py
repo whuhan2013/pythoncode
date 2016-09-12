@@ -30,25 +30,27 @@ for index, page in enumerate(mypages):
     print(str(index), page)
 
 # 设置每个网页要刷的次数
-brushNum = 200
-
+brushNum = 20
+i=0;
 # 所有的页面都刷
-print('下面开始刷了哦：')
-for index, page in enumerate(mypages):
-    for j in range(brushNum):
-        try:
-            pageContent = opener.open(page).read().decode('utf-8')
-            # 使用BeautifulSoup解析每篇博客的标题
-            soup = BeautifulSoup(pageContent)
-            blogTitle = str(soup.title.string)
-            blogTitle = blogTitle[0:blogTitle.find('-')]
-            print(str(j), blogTitle)
+while 1:
+    i=i+1
+    print('下面开始刷了哦：',i)
+    for index, page in enumerate(mypages):
+        for j in range(brushNum):
+            try:
+                pageContent = opener.open(page).read().decode('utf-8')
+                # 使用BeautifulSoup解析每篇博客的标题
+                soup = BeautifulSoup(pageContent)
+                blogTitle = str(soup.title.string)
+                blogTitle = blogTitle[0:blogTitle.find('-')]
+                print(str(j), blogTitle)
 
-        except urllib.error.HTTPError:
-            print('urllib.error.HTTPError')
-            time.sleep(3)  # 出现错误，停几秒先
+            except urllib.error.HTTPError:
+                print('urllib.error.HTTPError')
+                time.sleep(3)  # 出现错误，停几秒先
 
-        except urllib.error.URLError:
-            print('urllib.error.URLError')
-            time.sleep(3)  # 出现错误，停几秒先
-        time.sleep(0.5)  # 正常停顿，以免服务器拒绝访问
+            except urllib.error.URLError:
+                print('urllib.error.URLError')
+                time.sleep(3)  # 出现错误，停几秒先
+            time.sleep(0.5)  # 正常停顿，以免服务器拒绝访问
