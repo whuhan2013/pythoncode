@@ -1,0 +1,3 @@
+[console_scripts]
+ticket = ticket:cli
+
