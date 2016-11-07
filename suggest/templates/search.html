@@ -1,0 +1,35 @@
+<!doctype html>
+<head><title>Recommend</title>
+<style type="text/css">
+.videoshow{
+border-bottom:5px solid #EFEFEF;
+padding:20px 10% 20px 20px;
+margin:30px 25% 30px 5%;
+}
+#body{
+text-align:center;
+}
+#content{
+margin-left:25%;
+}
+</style>
+</head>
+
+<body>
+    <div id="body">
+    <form name="input" action="/search/" method="get">
+    <br/><br/>
+    User Number:
+    <input type="text" name="user" />
+    <input type="submit" value="Search" />
+    </form>
+    <br/><br/>
+    <div id="content">
+    <div class="videoshow">
+    <p class="title">{{Data['name']}}</p>
+    <p class="Introduction">{{Data['brief']}}</p>
+    </div>
+    </div>
+    </div>
+</body>
+</html>
